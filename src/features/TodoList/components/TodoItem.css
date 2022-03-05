@@ -1,0 +1,49 @@
+.todo {
+  display: flex;
+  width: 600px;
+  height: 80px;
+  border: 1px solid black;
+  margin: 20px auto 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+.infor {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.infor__checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.infor__name {
+  display: inline-block;
+  font-size: 16px;
+  padding-left: 8px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  width: 290px;
+  justify-content: space-between;
+}
+
+.action__btn {
+  width: 130px;
+  height: 38px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn_detail {
+  background-color: #2196f3;
+}
+
+.btn_remove {
+  background-color: #D9534F;
+}

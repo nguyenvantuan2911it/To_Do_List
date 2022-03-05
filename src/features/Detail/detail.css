@@ -1,0 +1,93 @@
+.main {
+  width: 660px;
+  height: 500px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.detail {
+  padding: 0 40px;
+}
+
+.detail__input {
+  display: inline-block;
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  outline: none;
+  margin: 40px 0;
+  border: 2px solid #a8a7a7;
+  font-size: 16px;
+  color: black;
+  text-indent: 8px;
+}
+
+.detail__description-title {
+  display: block;
+  text-align: initial;
+  margin: 0px 0px 5px 10px;
+  font-weight: bold;
+}
+
+.detail__description-text {
+  max-width: 580px;
+  width: 580px;
+  height: 150px;
+  font-size: 16px;
+  color: black;
+}
+
+.detail__box {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail__box-date {
+  width: 370px;
+  text-align: initial;
+}
+
+.box__date-title {
+  display: block;
+  margin: 0px 0px 5px 10px;
+  font-weight: bold;
+}
+
+.box__date-input {
+  min-width: 370px;
+  width: 370px;
+  height: 26px;
+  font-size: 16px;
+  outline: none;
+}
+
+.detail__box-select {
+  width: 370px;
+  text-align: initial;
+}
+
+.box__select-title {
+  display: block;
+  margin: 0px 0px 5px 10px;
+  font-weight: bold;
+}
+
+.box__select-input {
+  min-width: 370px;
+  width: 370px;
+  height: 30px;
+  font-size: 16px;
+  outline: none;
+}
+
+.detail__button {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 16px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #07c523;
+  border: none;
+}
