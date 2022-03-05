@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import TodoItem from "./components/TodoItem";
 
 function TodoList(props) {
@@ -9,7 +9,8 @@ function TodoList(props) {
     handleUpdate,
     handleRemoveMultipleTask,
     handleSearch,
-    handleCheckedTask
+    handleCheckedTask,
+    checkedTask
   } = props;
 
   return (
@@ -42,7 +43,8 @@ function TodoList(props) {
                 todo={todo}
                 handleRemove={(id) => handleRemove(id)}
                 handleUpdate={(value) => handleUpdate(value)}
-                handleCheckedTask={(id) =>handleCheckedTask(id)}
+                handleCheckedTask={(id) => handleCheckedTask(id)}
+                checkedTask={checkedTask}
               />
             </div>
           ))}

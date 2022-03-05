@@ -4,50 +4,46 @@ import "./TodoItem.css";
 TodoItem.propTypes = {};
 
 function TodoItem(props) {
-  const { todo, handleRemove, handleUpdate, handleCheckedTask } = props;
+  const { todo, handleRemove, handleUpdate, handleCheckedTask, checkedTask } =
+    props;
   const [showDetail, setShowDetail] = useState(false);
-  const check = false
   return (
-    <>
-      <div>
-        <div className="todo">
-          <div className="infor">
-            <input
-              className="infor__checkbox"
-              type="checkbox"
-              defaultChecked={check}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  handleCheckedTask(todo.id);
-                }
-              }}
-            />
-            <span className="infor__name">{todo.name}</span>
-          </div>
-          <div className="action">
-            <button
-              onClick={() => {
-                setShowDetail(!showDetail);
-              }}
-              className="action__btn btn_detail"
-            >
-              Detail
-            </button>
-            <button
-              onClick={() => {
-                handleRemove(todo.id);
-              }}
-              className="action__btn btn_remove"
-            >
-              Remove
-            </button>
-          </div>
+    <div>
+      <div className="todo">
+        <div className="infor">
+          <input
+            className="infor__checkbox"
+            type="checkbox"
+            checked={checkedTask.includes(todo.id)}
+            onChange={(e) => {
+              handleCheckedTask(todo.id);
+            }}
+          />
+          <span className="infor__name">{todo.name}</span>
         </div>
-        {showDetail && (
-          <Detail todo={todo} handleUpdate={(value) => handleUpdate(value)} />
-        )}
+        <div className="action">
+          <button
+            onClick={() => {
+              setShowDetail(!showDetail);
+            }}
+            className="action__btn btn_detail"
+          >
+            Detail
+          </button>
+          <button
+            onClick={() => {
+              handleRemove(todo.id);
+            }}
+            className="action__btn btn_remove"
+          >
+            Remove
+          </button>
+        </div>
       </div>
-    </>
+      {showDetail && (
+        <Detail todo={todo} handleUpdate={(value) => handleUpdate(value)} />
+      )}
+    </div>
   );
 }
 

@@ -28,7 +28,7 @@ function App() {
     setTodoList(newList);
     toast.success("Xoá task thành công");
   };
-
+  
   const handleUpdate = (data) => {
     const index = todoList.findIndex((todo) => todo.id === data.id);
     const newList = [...todoList];
@@ -112,21 +112,22 @@ function App() {
           handleRemoveMultipleTask={handleRemoveMultiple}
           handleSearch={(keyword) => {
             const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
-            const newTodoList = [...todoList];
-            const arraySearch = newTodoList.filter(
+            const arraySearch = todoList.filter(
               (item) => item.name.indexOf(keyword) !== -1
             );
             setTodoList(arraySearch);
           }}
           handleCheckedTask={(id) => {
             const index = checkedTask.findIndex((checkId) => checkId === id);
+            const newCheckedTask = [...checkedTask];
             if (index !== -1) {
-              checkedTask.splice(index, 1);
-              setCheckedTask([...checkedTask]);
+              newCheckedTask.splice(index, 1);
+              setCheckedTask([...newCheckedTask]);
             } else {
-              setCheckedTask([...checkedTask, id]);
+              setCheckedTask([...newCheckedTask, id]);
             }
           }}
+          checkedTask={checkedTask}
         />
       </div>
     </div>
