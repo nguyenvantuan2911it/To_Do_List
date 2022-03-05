@@ -9,8 +9,8 @@ function TodoList(props) {
     handleUpdate,
     handleRemoveMultipleTask,
     handleSearch,
+    handleCheckedTask
   } = props;
-  const [checkedTask, setCheckedTask] = useState([]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", width: 800 }}>
@@ -42,17 +42,7 @@ function TodoList(props) {
                 todo={todo}
                 handleRemove={(id) => handleRemove(id)}
                 handleUpdate={(value) => handleUpdate(value)}
-                handleCheckedTask={(id) => {
-                  const index = checkedTask.findIndex(
-                    (checkId) => checkId === id
-                  );
-                  if (index !== -1) {
-                    checkedTask.splice(index, 1);
-                    setCheckedTask([...checkedTask]);
-                  } else {
-                    setCheckedTask([...checkedTask, id]);
-                  }
-                }}
+                handleCheckedTask={(id) =>handleCheckedTask(id)}
               />
             </div>
           ))}
@@ -93,7 +83,7 @@ function TodoList(props) {
               border: "none",
             }}
             onClick={() => {
-              handleRemoveMultipleTask(checkedTask);
+              handleRemoveMultipleTask();
             }}
           >
             Remove

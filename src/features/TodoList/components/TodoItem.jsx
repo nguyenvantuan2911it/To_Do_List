@@ -6,6 +6,7 @@ TodoItem.propTypes = {};
 function TodoItem(props) {
   const { todo, handleRemove, handleUpdate, handleCheckedTask } = props;
   const [showDetail, setShowDetail] = useState(false);
+  const check = false
   return (
     <>
       <div>
@@ -14,8 +15,11 @@ function TodoItem(props) {
             <input
               className="infor__checkbox"
               type="checkbox"
+              defaultChecked={check}
               onChange={(e) => {
-                handleCheckedTask(todo.id);
+                if (e.target.checked) {
+                  handleCheckedTask(todo.id);
+                }
               }}
             />
             <span className="infor__name">{todo.name}</span>

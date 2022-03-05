@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 
 function App() {
+  const [checkedTask, setCheckedTask] = useState([]);
+
   const [defaultValues, setDefaultValues] = useState({
     name: "",
     description: "",
@@ -36,7 +38,7 @@ function App() {
     toast.success("Cập nhật task thành công");
   };
 
-  const handleRemoveMultiple = (checkedTask) => {
+  const handleRemoveMultiple = () => {
     if (checkedTask.length > 0) {
       const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
       const newTodoList = [...todoList];
@@ -47,6 +49,7 @@ function App() {
       setTodoList(newTodoList);
       localStorage.setItem("todoList", JSON.stringify(newTodoList));
       toast.success("Xoá task thành công");
+      setCheckedTask([]);
     } else {
       toast.warning("Bạn chưa chọn mục task nào !!!");
     }
@@ -72,7 +75,7 @@ function App() {
         rtl={false}
         pauseOnFocusLoss
         draggable
-        pauseOnHover
+        pauseOnHover={false}
       />
       <div style={{ padding: "20px 30px", display: "flex", gap: 50 }}>
         <AddTask
@@ -114,6 +117,15 @@ function App() {
               (item) => item.name.indexOf(keyword) !== -1
             );
             setTodoList(arraySearch);
+          }}
+          handleCheckedTask={(id) => {
+            const index = checkedTask.findIndex((checkId) => checkId === id);
+            if (index !== -1) {
+              checkedTask.splice(index, 1);
+              setCheckedTask([...checkedTask]);
+            } else {
+              setCheckedTask([...checkedTask, id]);
+            }
           }}
         />
       </div>
