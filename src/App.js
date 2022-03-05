@@ -28,7 +28,7 @@ function App() {
     setTodoList(newList);
     toast.success("Xoá task thành công");
   };
-  
+
   const handleUpdate = (data) => {
     const index = todoList.findIndex((todo) => todo.id === data.id);
     const newList = [...todoList];

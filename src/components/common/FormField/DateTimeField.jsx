@@ -23,6 +23,7 @@ function DateTimeField(props) {
           value={value}
           onChange={onChange}
           onBlur={onBlur}
+          minDate={new Date()}
           renderInput={(params) => <TextField style={style} {...params} />}
         />
       </Stack>

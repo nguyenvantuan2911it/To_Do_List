@@ -10,7 +10,7 @@ function TodoList(props) {
     handleRemoveMultipleTask,
     handleSearch,
     handleCheckedTask,
-    checkedTask
+    checkedTask,
   } = props;
 
   return (
@@ -37,17 +37,19 @@ function TodoList(props) {
         }}
       >
         {todoList &&
-          todoList.map((todo, index) => (
-            <div key={index}>
-              <TodoItem
-                todo={todo}
-                handleRemove={(id) => handleRemove(id)}
-                handleUpdate={(value) => handleUpdate(value)}
-                handleCheckedTask={(id) => handleCheckedTask(id)}
-                checkedTask={checkedTask}
-              />
-            </div>
-          ))}
+          todoList
+            .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
+            .map((todo, index) => (
+              <div key={index}>
+                <TodoItem
+                  todo={todo}
+                  handleRemove={(id) => handleRemove(id)}
+                  handleUpdate={(value) => handleUpdate(value)}
+                  handleCheckedTask={(id) => handleCheckedTask(id)}
+                  checkedTask={checkedTask}
+                />
+              </div>
+            ))}
       </div>
       <div
         style={{
